@@ -17,6 +17,39 @@
 $(call inherit-product, vendor/xiaomi/mido/mido-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
+# Include OpenGApps
+GAPPS_VARIANT := micro
+
+GAPPS_PRODUCT_PACKAGES += CalculatorGoogle \
+    PrebuiltDeskClockGoogle \
+    Maps \
+    Photos \
+    CloudPrint2 \
+    EditorsDocs \
+    Drive \
+    PrebuiltKeep \
+    PlayGames \
+    EditorsSheets \
+    EditorsSlides \
+    talkback \
+    GoogleContacts \
+    LatinImeGoogle \
+    StorageManagerGoogle \
+    GooglePrintRecommendationService \
+    GoogleExtServices \
+    GoogleExtShared \
+    CarrierServices \
+    GCS \
+    TranslatePrebuilt \
+    ActionsServices \
+    WebViewGoogle \
+    Chrome \
+    GoogleDialer \
+    PrebuiltBugle \
+    Wallpapers
+
+GAPPS_FORCE_PACKAGE_OVERRIDES := true
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
@@ -408,3 +441,6 @@ PRODUCT_COPY_FILES += \
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# OpenGapps Configuration
+$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
